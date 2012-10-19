@@ -10,8 +10,7 @@ namespace confop.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Welcome to ASP.NET MVC!";
-
+            ViewBag.Message = "Apresentação";
             return View();
         }
 

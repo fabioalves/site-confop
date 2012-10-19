@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="Site" EntityType="Model.Store.Site" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Secao" EntityType="Model.Store.Secao" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Link" EntityType="Model.Store.Link" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Faq" EntityType="Model.Store.Faq" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Apoio" EntityType="Model.Store.Apoio" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Comite" EntityType="Model.Store.Comite" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MembroComite" EntityType="Model.Store.MembroComite" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GrupoTrabalho" EntityType="Model.Store.GrupoTrabalho" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Usuario" EntityType="Model.Store.Usuario" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="SiteSecao" Association="Model.Store.SiteSecao">
+      <End Role="Site" EntitySet="Site" />
+      <End Role="Secao" EntitySet="Secao" />
+    </AssociationSet>
+    <AssociationSet Name="SiteLink" Association="Model.Store.SiteLink">
+      <End Role="Site" EntitySet="Site" />
+      <End Role="Link" EntitySet="Link" />
+    </AssociationSet>
+    <AssociationSet Name="SiteFaq" Association="Model.Store.SiteFaq">
+      <End Role="Site" EntitySet="Site" />
+      <End Role="Faq" EntitySet="Faq" />
+    </AssociationSet>
+    <AssociationSet Name="SiteComite" Association="Model.Store.SiteComite">
+      <End Role="Site" EntitySet="Site" />
+      <End Role="Comite" EntitySet="Comite" />
+    </AssociationSet>
+    <AssociationSet Name="SiteApoio" Association="Model.Store.SiteApoio">
+      <End Role="Site" EntitySet="Site" />
+      <End Role="Apoio" EntitySet="Apoio" />
+    </AssociationSet>
+    <AssociationSet Name="ComiteMembroComite" Association="Model.Store.ComiteMembroComite">
+      <End Role="Comite" EntitySet="Comite" />
+      <End Role="MembroComite" EntitySet="MembroComite" />
+    </AssociationSet>
+    <AssociationSet Name="SiteGrupoTrabalho" Association="Model.Store.SiteGrupoTrabalho">
+      <End Role="Site" EntitySet="Site" />
+      <End Role="GrupoTrabalho" EntitySet="GrupoTrabalho" />
+    </AssociationSet>
+    <AssociationSet Name="SiteUsuario" Association="Model.Store.SiteUsuario">
+      <End Role="Site" EntitySet="Site" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Site">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Url" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Rodape" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="EmailResponsavel" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Secao">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Texto" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SiteId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Link">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Url" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SiteId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Faq">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Pergunta" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Resposta" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SiteId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Apoio">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Url" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Imagem" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SiteId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Comite">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SiteId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MembroComite">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ComiteId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GrupoTrabalho">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SiteId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Senha" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DataUltimoAcesso" Type="datetime" Nullable="true" />
+    <Property Name="SiteId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="SiteSecao">
+    <End Role="Site" Type="Model.Store.Site" Multiplicity="1" />
+    <End Role="Secao" Type="Model.Store.Secao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Secao">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SiteLink">
+    <End Role="Site" Type="Model.Store.Site" Multiplicity="1" />
+    <End Role="Link" Type="Model.Store.Link" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Link">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SiteFaq">
+    <End Role="Site" Type="Model.Store.Site" Multiplicity="1" />
+    <End Role="Faq" Type="Model.Store.Faq" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Faq">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SiteComite">
+    <End Role="Site" Type="Model.Store.Site" Multiplicity="1" />
+    <End Role="Comite" Type="Model.Store.Comite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comite">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SiteApoio">
+    <End Role="Site" Type="Model.Store.Site" Multiplicity="1" />
+    <End Role="Apoio" Type="Model.Store.Apoio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Apoio">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ComiteMembroComite">
+    <End Role="Comite" Type="Model.Store.Comite" Multiplicity="1" />
+    <End Role="MembroComite" Type="Model.Store.MembroComite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comite">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MembroComite">
+        <PropertyRef Name="ComiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SiteGrupoTrabalho">
+    <End Role="Site" Type="Model.Store.Site" Multiplicity="1" />
+    <End Role="GrupoTrabalho" Type="Model.Store.GrupoTrabalho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GrupoTrabalho">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SiteUsuario">
+    <End Role="Site" Type="Model.Store.Site" Multiplicity="1" />
+    <End Role="Usuario" Type="Model.Store.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

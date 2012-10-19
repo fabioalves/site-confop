@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="ModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Site" EntityType="Model.Site" />
+    <EntitySet Name="Secao" EntityType="Model.Secao" />
+    <AssociationSet Name="SiteSecao" Association="Model.SiteSecao">
+      <End Role="Site" EntitySet="Site" />
+      <End Role="Secao" EntitySet="Secao" />
+    </AssociationSet>
+    <EntitySet Name="Link" EntityType="Model.Link" />
+    <AssociationSet Name="SiteLink" Association="Model.SiteLink">
+      <End Role="Site" EntitySet="Site" />
+      <End Role="Link" EntitySet="Link" />
+    </AssociationSet>
+    <EntitySet Name="Faq" EntityType="Model.Faq" />
+    <AssociationSet Name="SiteFaq" Association="Model.SiteFaq">
+      <End Role="Site" EntitySet="Site" />
+      <End Role="Faq" EntitySet="Faq" />
+    </AssociationSet>
+    <EntitySet Name="Apoio" EntityType="Model.Apoio" />
+    <EntitySet Name="Comite" EntityType="Model.Comite" />
+    <EntitySet Name="MembroComite" EntityType="Model.MembroComite" />
+    <AssociationSet Name="SiteComite" Association="Model.SiteComite">
+      <End Role="Site" EntitySet="Site" />
+      <End Role="Comite" EntitySet="Comite" />
+    </AssociationSet>
+    <AssociationSet Name="SiteApoio" Association="Model.SiteApoio">
+      <End Role="Site" EntitySet="Site" />
+      <End Role="Apoio" EntitySet="Apoio" />
+    </AssociationSet>
+    <AssociationSet Name="ComiteMembroComite" Association="Model.ComiteMembroComite">
+      <End Role="Comite" EntitySet="Comite" />
+      <End Role="MembroComite" EntitySet="MembroComite" />
+    </AssociationSet>
+    <EntitySet Name="GrupoTrabalho" EntityType="Model.GrupoTrabalho" />
+    <AssociationSet Name="SiteGrupoTrabalho" Association="Model.SiteGrupoTrabalho">
+      <End Role="Site" EntitySet="Site" />
+      <End Role="GrupoTrabalho" EntitySet="GrupoTrabalho" />
+    </AssociationSet>
+    <EntitySet Name="Usuario" EntityType="Model.Usuario" />
+    <AssociationSet Name="SiteUsuario" Association="Model.SiteUsuario">
+      <End Role="Site" EntitySet="Site" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Site">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Nome" Nullable="false" />
+    <Property Type="String" Name="Url" Nullable="true" />
+    <Property Type="String" Name="Rodape" Nullable="true" />
+    <Property Type="String" Name="EmailResponsavel" Nullable="true" />
+    <NavigationProperty Name="Secao" Relationship="Model.SiteSecao" FromRole="Site" ToRole="Secao" />
+    <NavigationProperty Name="Link" Relationship="Model.SiteLink" FromRole="Site" ToRole="Link" />
+    <NavigationProperty Name="Faq" Relationship="Model.SiteFaq" FromRole="Site" ToRole="Faq" />
+    <NavigationProperty Name="Comite" Relationship="Model.SiteComite" FromRole="Site" ToRole="Comite" />
+    <NavigationProperty Name="Apoio" Relationship="Model.SiteApoio" FromRole="Site" ToRole="Apoio" />
+    <NavigationProperty Name="GrupoTrabalho" Relationship="Model.SiteGrupoTrabalho" FromRole="Site" ToRole="GrupoTrabalho" />
+    <NavigationProperty Name="Usuario" Relationship="Model.SiteUsuario" FromRole="Site" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Secao">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Nome" Nullable="false" />
+    <Property Type="String" Name="Texto" Nullable="true" />
+    <NavigationProperty Name="Site" Relationship="Model.SiteSecao" FromRole="Secao" ToRole="Site" />
+    <Property Type="Int32" Name="SiteId" Nullable="false" />
+  </EntityType>
+  <Association Name="SiteSecao">
+    <End Type="Model.Site" Role="Site" Multiplicity="1" />
+    <End Type="Model.Secao" Role="Secao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Secao">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Link">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Nome" Nullable="false" />
+    <Property Type="String" Name="Url" Nullable="false" />
+    <NavigationProperty Name="Site" Relationship="Model.SiteLink" FromRole="Link" ToRole="Site" />
+    <Property Type="Int32" Name="SiteId" Nullable="false" />
+  </EntityType>
+  <Association Name="SiteLink">
+    <End Type="Model.Site" Role="Site" Multiplicity="1" />
+    <End Type="Model.Link" Role="Link" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Link">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Faq">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Pergunta" Nullable="false" />
+    <Property Type="String" Name="Resposta" Nullable="true" />
+    <NavigationProperty Name="Site" Relationship="Model.SiteFaq" FromRole="Faq" ToRole="Site" />
+    <Property Type="Int32" Name="SiteId" Nullable="false" />
+  </EntityType>
+  <Association Name="SiteFaq">
+    <End Type="Model.Site" Role="Site" Multiplicity="1" />
+    <End Type="Model.Faq" Role="Faq" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Faq">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Apoio">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Nome" Nullable="false" />
+    <Property Type="String" Name="Url" Nullable="false" />
+    <Property Type="String" Name="Imagem" Nullable="true" />
+    <NavigationProperty Name="Site" Relationship="Model.SiteApoio" FromRole="Apoio" ToRole="Site" />
+    <Property Type="Int32" Name="SiteId" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Comite">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Nome" Nullable="false" />
+    <NavigationProperty Name="Site" Relationship="Model.SiteComite" FromRole="Comite" ToRole="Site" />
+    <Property Type="Int32" Name="SiteId" Nullable="false" />
+    <NavigationProperty Name="MembroComite" Relationship="Model.ComiteMembroComite" FromRole="Comite" ToRole="MembroComite" />
+  </EntityType>
+  <EntityType Name="MembroComite">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Nome" Nullable="false" />
+    <Property Type="String" Name="Email" Nullable="true" />
+    <NavigationProperty Name="Comite" Relationship="Model.ComiteMembroComite" FromRole="MembroComite" ToRole="Comite" />
+    <Property Type="Int32" Name="ComiteId" Nullable="false" />
+  </EntityType>
+  <Association Name="SiteComite">
+    <End Type="Model.Site" Role="Site" Multiplicity="1" />
+    <End Type="Model.Comite" Role="Comite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comite">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SiteApoio">
+    <End Type="Model.Site" Role="Site" Multiplicity="1" />
+    <End Type="Model.Apoio" Role="Apoio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Apoio">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ComiteMembroComite">
+    <End Type="Model.Comite" Role="Comite" Multiplicity="1" />
+    <End Type="Model.MembroComite" Role="MembroComite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comite">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MembroComite">
+        <PropertyRef Name="ComiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="GrupoTrabalho">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Nome" Nullable="false" />
+    <NavigationProperty Name="Site" Relationship="Model.SiteGrupoTrabalho" FromRole="GrupoTrabalho" ToRole="Site" />
+    <Property Type="Int32" Name="SiteId" Nullable="false" />
+  </EntityType>
+  <Association Name="SiteGrupoTrabalho">
+    <End Type="Model.Site" Role="Site" Multiplicity="1" />
+    <End Type="Model.GrupoTrabalho" Role="GrupoTrabalho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GrupoTrabalho">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Login" Nullable="false" />
+    <Property Type="String" Name="Senha" Nullable="false" />
+    <Property Type="DateTime" Name="DataUltimoAcesso" Nullable="true" />
+    <NavigationProperty Name="Site" Relationship="Model.SiteUsuario" FromRole="Usuario" ToRole="Site" />
+    <Property Type="Int32" Name="SiteId" Nullable="false" />
+  </EntityType>
+  <Association Name="SiteUsuario">
+    <End Type="Model.Site" Role="Site" Multiplicity="1" />
+    <End Type="Model.Usuario" Role="Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

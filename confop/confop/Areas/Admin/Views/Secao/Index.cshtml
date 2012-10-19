@@ -1,0 +1,29 @@
+﻿@model IEnumerable<confop.Models.Secao>
+
+@{
+    ViewBag.Title = "Administrativo - Seções de Conteúdo";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Seções de Conteúdo</h2>
+<table width="100%">
+    <tr>
+        <th>
+            Nome
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

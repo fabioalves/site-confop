@@ -1,0 +1,31 @@
+﻿@model confop.Models.Faq
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Faq</legend>
+
+    <div class="display-label">Pergunta</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Pergunta)
+    </div>
+
+    <div class="display-label">Resposta</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Resposta)
+    </div>
+
+    <div class="display-label">Site</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Site.Nome)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

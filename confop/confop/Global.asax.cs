@@ -36,5 +36,10 @@ namespace confop
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
         }
+
+        public static int GetSiteId()
+        {
+            return int.Parse(System.Web.Configuration.WebConfigurationManager.AppSettings["SiteId"].ToString());
+        }
     }
 }

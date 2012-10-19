@@ -1,0 +1,35 @@
+﻿@model confop.Models.Usuario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Usuario</legend>
+
+    <div class="display-label">Login</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Login)
+    </div>
+
+    <div class="display-label">Senha</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Senha)
+    </div>
+
+    <div class="display-label">DataUltimoAcesso</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DataUltimoAcesso)
+    </div>
+
+    <div class="display-label">Site</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Site.Nome)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

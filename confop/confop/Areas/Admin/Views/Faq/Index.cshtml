@@ -1,0 +1,39 @@
+﻿@model IEnumerable<confop.Models.Faq>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Perguntas Frequentes</h2>
+
+<p>
+    @Html.ActionLink("Criar Nova Pergunta", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Pergunta
+        </th>
+        <th>
+            Resposta
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pergunta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Resposta)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
