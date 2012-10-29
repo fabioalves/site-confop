@@ -1,0 +1,17 @@
+﻿@model confop.Models.GrupoTrabalho
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@using (Html.BeginForm("Create", "GrupoTrabalho")) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Cadastrar</legend>
+        Nome do Eixo Temático: 
+            @Html.EditorFor(model => model.Nome)
+            @Html.ValidationMessageFor(model => model.Nome)
+            <input type="submit" value="Cadastrar" />
+    </fieldset>
+}
+

@@ -1,0 +1,17 @@
+﻿@model IEnumerable<confop.Models.GrupoTrabalho>
+
+@{
+    ViewBag.Title = "Eixos Temáticos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Eixos Temáticos</h1>
+<ul>
+@foreach (var item in Model)
+{
+    <li>
+        @Html.DisplayFor(modelItem => item.Nome)
+    </li>
+}
+</ul>
+

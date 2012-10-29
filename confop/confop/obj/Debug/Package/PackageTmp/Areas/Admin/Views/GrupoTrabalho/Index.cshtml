@@ -1,0 +1,47 @@
+﻿@model IEnumerable<confop.Models.GrupoTrabalho>
+
+@{
+    ViewBag.Title = "Index";
+    confop.Models.GrupoTrabalho newModel = new confop.Models.GrupoTrabalho();
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+    confop.Models.GrupoTrabalho editModel = new confop.Models.GrupoTrabalho();    
+}
+
+<h2>Eixos Temáticos</h2>
+@{
+    if (ViewBag.GrupoEdit != null)
+    {
+        editModel = ViewBag.GrupoEdit;
+        Html.RenderPartial("edit", editModel);
+    }
+    else
+    {
+        Html.RenderPartial("create", editModel);
+    }
+}
+<p>
+    @Html.ActionLink("Cadastrar Novo", "Index", new { id = "" })
+</p>
+<table>
+    <tr>
+        <th>
+            Nome
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Index", new { id = item.Id }) |
+            @Html.ActionLink("Excluir", "DeleteConfirmed", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>

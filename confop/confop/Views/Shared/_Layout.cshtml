@@ -17,13 +17,25 @@
 
             <div id='cssmenu'>
                 <ul>
-                   <li><a href='index'><span>Apresentação</span></a></li>
-                   <li><a href='#'><span>Inscrição</span></a></li>
-                   <li class='active'><a href='#'><span>Submissão</span></a></li>
-                   <li><a href='#'><span>Programação</span></a></li>
-                   <li><a href='#'><span>Comitê Organizador</span></a></li>
-                   <li><a href='#'><span>Eixos Temáticos</span></a></li>                   
-                   <li><a href='#'><span>Contato</span></a></li>
+                   <li>
+                    @Html.ActionLink("Apresentação", "Index", "Home")                   
+                   </li>
+                   <li>
+                   @Html.ActionLink("Inscrição", "Index", "Secao", new { id = 2 }, null)                   
+                   </li>
+                   <li>
+                   @Html.ActionLink("Submissão", "Index", "Secao", new { id = 3 }, null)                   
+                   </li>
+                   <li>
+                   @Html.ActionLink("Programação", "Index", "Secao", new { id = 4 }, null)                                      
+                   <li>
+                   @Html.ActionLink("Comitê Organizador", "Index", "Comite")                                      
+                   </li>
+                   <li>
+                   @Html.ActionLink("Eixos Temáticos", "Index", "GrupoTrabalho")
+                   </li>                   
+                   <li>
+                   @Html.ActionLink("Contato", "Index", "Contato")</li>
                 </ul>
             </div>
         </header>
@@ -37,9 +49,7 @@
         </section>
             <div class="content-box">
                 @RenderBody()
-            </div>
-
-        
+            </div>        
         </section>
         
         <footer>

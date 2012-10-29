@@ -42,6 +42,11 @@
       <End Role="Site" EntitySet="Site" />
       <End Role="Usuario" EntitySet="Usuario" />
     </AssociationSet>
+    <EntitySet Name="Contato" EntityType="Model.Contato" />
+    <AssociationSet Name="ContatoSite" Association="Model.ContatoSite">
+      <End Role="Contato" EntitySet="Contato" />
+      <End Role="Site" EntitySet="Site" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Site">
     <Key>
@@ -59,6 +64,7 @@
     <NavigationProperty Name="Apoio" Relationship="Model.SiteApoio" FromRole="Site" ToRole="Apoio" />
     <NavigationProperty Name="GrupoTrabalho" Relationship="Model.SiteGrupoTrabalho" FromRole="Site" ToRole="GrupoTrabalho" />
     <NavigationProperty Name="Usuario" Relationship="Model.SiteUsuario" FromRole="Site" ToRole="Usuario" />
+    <NavigationProperty Name="Contato" Relationship="Model.ContatoSite" FromRole="Site" ToRole="Contato" />
   </EntityType>
   <EntityType Name="Secao">
     <Key>
@@ -233,6 +239,31 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Usuario">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Contato">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Remetente" Nullable="false" />
+    <Property Type="String" Name="Email" Nullable="false" />
+    <Property Type="String" Name="Assunto" Nullable="false" />
+    <Property Type="String" Name="Mensagem" Nullable="false" />
+    <NavigationProperty Name="Site" Relationship="Model.ContatoSite" FromRole="Contato" ToRole="Site" />
+    <Property Type="Int32" Name="SiteId" Nullable="false" />
+    <Property Type="DateTime" Name="DataEnvio" />
+  </EntityType>
+  <Association Name="ContatoSite">
+    <End Type="Model.Contato" Role="Contato" Multiplicity="*" />
+    <End Type="Model.Site" Role="Site" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contato">
         <PropertyRef Name="SiteId" />
       </Dependent>
     </ReferentialConstraint>

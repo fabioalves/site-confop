@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 10/19/2012 14:34:59
+-- Date Created: 10/29/2012 10:02:23
 -- Generated from EDMX file: C:\Users\FABIO\Dropbox\artigosFabioEdie\siteconfop\confop\confop\Models\Model.edmx
 -- --------------------------------------------------
 
@@ -10,68 +10,68 @@ SET QUOTED_IDENTIFIER OFF;
 GO
 USE [siteeventodb];
 GO
-IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
+IF SCHEMA_ID(N'siteevento') IS NULL EXECUTE(N'CREATE SCHEMA [siteevento]');
 GO
 
 -- --------------------------------------------------
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_SiteSecao]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[SecaoSet] DROP CONSTRAINT [FK_SiteSecao];
+IF OBJECT_ID(N'[siteevento].[FK_SiteSecao]', 'F') IS NOT NULL
+    ALTER TABLE [siteevento].[Secao] DROP CONSTRAINT [FK_SiteSecao];
 GO
-IF OBJECT_ID(N'[dbo].[FK_SiteLink]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[LinkSet] DROP CONSTRAINT [FK_SiteLink];
+IF OBJECT_ID(N'[siteevento].[FK_SiteLink]', 'F') IS NOT NULL
+    ALTER TABLE [siteevento].[Link] DROP CONSTRAINT [FK_SiteLink];
 GO
-IF OBJECT_ID(N'[dbo].[FK_SiteFaq]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[FaqSet] DROP CONSTRAINT [FK_SiteFaq];
+IF OBJECT_ID(N'[siteevento].[FK_SiteFaq]', 'F') IS NOT NULL
+    ALTER TABLE [siteevento].[Faq] DROP CONSTRAINT [FK_SiteFaq];
 GO
-IF OBJECT_ID(N'[dbo].[FK_SiteComite]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ComiteSet] DROP CONSTRAINT [FK_SiteComite];
+IF OBJECT_ID(N'[siteevento].[FK_SiteComite]', 'F') IS NOT NULL
+    ALTER TABLE [siteevento].[Comite] DROP CONSTRAINT [FK_SiteComite];
 GO
-IF OBJECT_ID(N'[dbo].[FK_SiteApoio]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ApoioSet] DROP CONSTRAINT [FK_SiteApoio];
+IF OBJECT_ID(N'[siteevento].[FK_SiteApoio]', 'F') IS NOT NULL
+    ALTER TABLE [siteevento].[Apoio] DROP CONSTRAINT [FK_SiteApoio];
 GO
-IF OBJECT_ID(N'[dbo].[FK_ComiteMembroComite]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[MembroComiteSet] DROP CONSTRAINT [FK_ComiteMembroComite];
+IF OBJECT_ID(N'[siteevento].[FK_ComiteMembroComite]', 'F') IS NOT NULL
+    ALTER TABLE [siteevento].[MembroComite] DROP CONSTRAINT [FK_ComiteMembroComite];
 GO
-IF OBJECT_ID(N'[dbo].[FK_SiteGrupoTrabalho]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[GrupoTrabalhoSet] DROP CONSTRAINT [FK_SiteGrupoTrabalho];
+IF OBJECT_ID(N'[siteevento].[FK_SiteGrupoTrabalho]', 'F') IS NOT NULL
+    ALTER TABLE [siteevento].[GrupoTrabalho] DROP CONSTRAINT [FK_SiteGrupoTrabalho];
 GO
-IF OBJECT_ID(N'[dbo].[FK_SiteUsuario]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[UsuarioSet] DROP CONSTRAINT [FK_SiteUsuario];
+IF OBJECT_ID(N'[siteevento].[FK_SiteUsuario]', 'F') IS NOT NULL
+    ALTER TABLE [siteevento].[Usuario] DROP CONSTRAINT [FK_SiteUsuario];
 GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[SiteSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[SiteSet];
+IF OBJECT_ID(N'[siteevento].[Site]', 'U') IS NOT NULL
+    DROP TABLE [siteevento].[Site];
 GO
-IF OBJECT_ID(N'[dbo].[SecaoSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[SecaoSet];
+IF OBJECT_ID(N'[siteevento].[Secao]', 'U') IS NOT NULL
+    DROP TABLE [siteevento].[Secao];
 GO
-IF OBJECT_ID(N'[dbo].[LinkSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[LinkSet];
+IF OBJECT_ID(N'[siteevento].[Link]', 'U') IS NOT NULL
+    DROP TABLE [siteevento].[Link];
 GO
-IF OBJECT_ID(N'[dbo].[FaqSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[FaqSet];
+IF OBJECT_ID(N'[siteevento].[Faq]', 'U') IS NOT NULL
+    DROP TABLE [siteevento].[Faq];
 GO
-IF OBJECT_ID(N'[dbo].[ApoioSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[ApoioSet];
+IF OBJECT_ID(N'[siteevento].[Apoio]', 'U') IS NOT NULL
+    DROP TABLE [siteevento].[Apoio];
 GO
-IF OBJECT_ID(N'[dbo].[ComiteSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[ComiteSet];
+IF OBJECT_ID(N'[siteevento].[Comite]', 'U') IS NOT NULL
+    DROP TABLE [siteevento].[Comite];
 GO
-IF OBJECT_ID(N'[dbo].[MembroComiteSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[MembroComiteSet];
+IF OBJECT_ID(N'[siteevento].[MembroComite]', 'U') IS NOT NULL
+    DROP TABLE [siteevento].[MembroComite];
 GO
-IF OBJECT_ID(N'[dbo].[GrupoTrabalhoSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[GrupoTrabalhoSet];
+IF OBJECT_ID(N'[siteevento].[GrupoTrabalho]', 'U') IS NOT NULL
+    DROP TABLE [siteevento].[GrupoTrabalho];
 GO
-IF OBJECT_ID(N'[dbo].[UsuarioSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[UsuarioSet];
+IF OBJECT_ID(N'[siteevento].[Usuario]', 'U') IS NOT NULL
+    DROP TABLE [siteevento].[Usuario];
 GO
 
 -- --------------------------------------------------
@@ -79,7 +79,7 @@ GO
 -- --------------------------------------------------
 
 -- Creating table 'Site'
-CREATE TABLE [dbo].[Site] (
+CREATE TABLE [siteevento].[Site] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Nome] nvarchar(max)  NOT NULL,
     [Url] nvarchar(max)  NULL,
@@ -89,7 +89,7 @@ CREATE TABLE [dbo].[Site] (
 GO
 
 -- Creating table 'Secao'
-CREATE TABLE [dbo].[Secao] (
+CREATE TABLE [siteevento].[Secao] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Nome] nvarchar(max)  NOT NULL,
     [Texto] nvarchar(max)  NULL,
@@ -98,7 +98,7 @@ CREATE TABLE [dbo].[Secao] (
 GO
 
 -- Creating table 'Link'
-CREATE TABLE [dbo].[Link] (
+CREATE TABLE [siteevento].[Link] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Nome] nvarchar(max)  NOT NULL,
     [Url] nvarchar(max)  NOT NULL,
@@ -107,7 +107,7 @@ CREATE TABLE [dbo].[Link] (
 GO
 
 -- Creating table 'Faq'
-CREATE TABLE [dbo].[Faq] (
+CREATE TABLE [siteevento].[Faq] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Pergunta] nvarchar(max)  NOT NULL,
     [Resposta] nvarchar(max)  NULL,
@@ -116,7 +116,7 @@ CREATE TABLE [dbo].[Faq] (
 GO
 
 -- Creating table 'Apoio'
-CREATE TABLE [dbo].[Apoio] (
+CREATE TABLE [siteevento].[Apoio] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Nome] nvarchar(max)  NOT NULL,
     [Url] nvarchar(max)  NOT NULL,
@@ -126,7 +126,7 @@ CREATE TABLE [dbo].[Apoio] (
 GO
 
 -- Creating table 'Comite'
-CREATE TABLE [dbo].[Comite] (
+CREATE TABLE [siteevento].[Comite] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Nome] nvarchar(max)  NOT NULL,
     [SiteId] int  NOT NULL
@@ -134,7 +134,7 @@ CREATE TABLE [dbo].[Comite] (
 GO
 
 -- Creating table 'MembroComite'
-CREATE TABLE [dbo].[MembroComite] (
+CREATE TABLE [siteevento].[MembroComite] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Nome] nvarchar(max)  NOT NULL,
     [Email] nvarchar(max)  NULL,
@@ -143,7 +143,7 @@ CREATE TABLE [dbo].[MembroComite] (
 GO
 
 -- Creating table 'GrupoTrabalho'
-CREATE TABLE [dbo].[GrupoTrabalho] (
+CREATE TABLE [siteevento].[GrupoTrabalho] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Nome] nvarchar(max)  NOT NULL,
     [SiteId] int  NOT NULL
@@ -151,11 +151,22 @@ CREATE TABLE [dbo].[GrupoTrabalho] (
 GO
 
 -- Creating table 'Usuario'
-CREATE TABLE [dbo].[Usuario] (
+CREATE TABLE [siteevento].[Usuario] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Login] nvarchar(max)  NOT NULL,
     [Senha] nvarchar(max)  NOT NULL,
     [DataUltimoAcesso] datetime  NULL,
+    [SiteId] int  NOT NULL
+);
+GO
+
+-- Creating table 'Contato'
+CREATE TABLE [siteevento].[Contato] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Remetente] nvarchar(max)  NOT NULL,
+    [Email] nvarchar(max)  NOT NULL,
+    [Assunto] nvarchar(max)  NOT NULL,
+    [Mensagem] nvarchar(max)  NOT NULL,
     [SiteId] int  NOT NULL
 );
 GO
@@ -165,56 +176,62 @@ GO
 -- --------------------------------------------------
 
 -- Creating primary key on [Id] in table 'Site'
-ALTER TABLE [dbo].[Site]
+ALTER TABLE [siteevento].[Site]
 ADD CONSTRAINT [PK_Site]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
 -- Creating primary key on [Id] in table 'Secao'
-ALTER TABLE [dbo].[Secao]
+ALTER TABLE [siteevento].[Secao]
 ADD CONSTRAINT [PK_Secao]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
 -- Creating primary key on [Id] in table 'Link'
-ALTER TABLE [dbo].[Link]
+ALTER TABLE [siteevento].[Link]
 ADD CONSTRAINT [PK_Link]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
 -- Creating primary key on [Id] in table 'Faq'
-ALTER TABLE [dbo].[Faq]
+ALTER TABLE [siteevento].[Faq]
 ADD CONSTRAINT [PK_Faq]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
 -- Creating primary key on [Id] in table 'Apoio'
-ALTER TABLE [dbo].[Apoio]
+ALTER TABLE [siteevento].[Apoio]
 ADD CONSTRAINT [PK_Apoio]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
 -- Creating primary key on [Id] in table 'Comite'
-ALTER TABLE [dbo].[Comite]
+ALTER TABLE [siteevento].[Comite]
 ADD CONSTRAINT [PK_Comite]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
 -- Creating primary key on [Id] in table 'MembroComite'
-ALTER TABLE [dbo].[MembroComite]
+ALTER TABLE [siteevento].[MembroComite]
 ADD CONSTRAINT [PK_MembroComite]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
 -- Creating primary key on [Id] in table 'GrupoTrabalho'
-ALTER TABLE [dbo].[GrupoTrabalho]
+ALTER TABLE [siteevento].[GrupoTrabalho]
 ADD CONSTRAINT [PK_GrupoTrabalho]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
 -- Creating primary key on [Id] in table 'Usuario'
-ALTER TABLE [dbo].[Usuario]
+ALTER TABLE [siteevento].[Usuario]
 ADD CONSTRAINT [PK_Usuario]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Contato'
+ALTER TABLE [siteevento].[Contato]
+ADD CONSTRAINT [PK_Contato]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -223,114 +240,128 @@ GO
 -- --------------------------------------------------
 
 -- Creating foreign key on [SiteId] in table 'Secao'
-ALTER TABLE [dbo].[Secao]
+ALTER TABLE [siteevento].[Secao]
 ADD CONSTRAINT [FK_SiteSecao]
     FOREIGN KEY ([SiteId])
-    REFERENCES [dbo].[Site]
+    REFERENCES [siteevento].[Site]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_SiteSecao'
 CREATE INDEX [IX_FK_SiteSecao]
-ON [dbo].[Secao]
+ON [siteevento].[Secao]
     ([SiteId]);
 GO
 
 -- Creating foreign key on [SiteId] in table 'Link'
-ALTER TABLE [dbo].[Link]
+ALTER TABLE [siteevento].[Link]
 ADD CONSTRAINT [FK_SiteLink]
     FOREIGN KEY ([SiteId])
-    REFERENCES [dbo].[Site]
+    REFERENCES [siteevento].[Site]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_SiteLink'
 CREATE INDEX [IX_FK_SiteLink]
-ON [dbo].[Link]
+ON [siteevento].[Link]
     ([SiteId]);
 GO
 
 -- Creating foreign key on [SiteId] in table 'Faq'
-ALTER TABLE [dbo].[Faq]
+ALTER TABLE [siteevento].[Faq]
 ADD CONSTRAINT [FK_SiteFaq]
     FOREIGN KEY ([SiteId])
-    REFERENCES [dbo].[Site]
+    REFERENCES [siteevento].[Site]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_SiteFaq'
 CREATE INDEX [IX_FK_SiteFaq]
-ON [dbo].[Faq]
+ON [siteevento].[Faq]
     ([SiteId]);
 GO
 
 -- Creating foreign key on [SiteId] in table 'Comite'
-ALTER TABLE [dbo].[Comite]
+ALTER TABLE [siteevento].[Comite]
 ADD CONSTRAINT [FK_SiteComite]
     FOREIGN KEY ([SiteId])
-    REFERENCES [dbo].[Site]
+    REFERENCES [siteevento].[Site]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_SiteComite'
 CREATE INDEX [IX_FK_SiteComite]
-ON [dbo].[Comite]
+ON [siteevento].[Comite]
     ([SiteId]);
 GO
 
 -- Creating foreign key on [SiteId] in table 'Apoio'
-ALTER TABLE [dbo].[Apoio]
+ALTER TABLE [siteevento].[Apoio]
 ADD CONSTRAINT [FK_SiteApoio]
     FOREIGN KEY ([SiteId])
-    REFERENCES [dbo].[Site]
+    REFERENCES [siteevento].[Site]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_SiteApoio'
 CREATE INDEX [IX_FK_SiteApoio]
-ON [dbo].[Apoio]
+ON [siteevento].[Apoio]
     ([SiteId]);
 GO
 
 -- Creating foreign key on [ComiteId] in table 'MembroComite'
-ALTER TABLE [dbo].[MembroComite]
+ALTER TABLE [siteevento].[MembroComite]
 ADD CONSTRAINT [FK_ComiteMembroComite]
     FOREIGN KEY ([ComiteId])
-    REFERENCES [dbo].[Comite]
+    REFERENCES [siteevento].[Comite]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_ComiteMembroComite'
 CREATE INDEX [IX_FK_ComiteMembroComite]
-ON [dbo].[MembroComite]
+ON [siteevento].[MembroComite]
     ([ComiteId]);
 GO
 
 -- Creating foreign key on [SiteId] in table 'GrupoTrabalho'
-ALTER TABLE [dbo].[GrupoTrabalho]
+ALTER TABLE [siteevento].[GrupoTrabalho]
 ADD CONSTRAINT [FK_SiteGrupoTrabalho]
     FOREIGN KEY ([SiteId])
-    REFERENCES [dbo].[Site]
+    REFERENCES [siteevento].[Site]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_SiteGrupoTrabalho'
 CREATE INDEX [IX_FK_SiteGrupoTrabalho]
-ON [dbo].[GrupoTrabalho]
+ON [siteevento].[GrupoTrabalho]
     ([SiteId]);
 GO
 
 -- Creating foreign key on [SiteId] in table 'Usuario'
-ALTER TABLE [dbo].[Usuario]
+ALTER TABLE [siteevento].[Usuario]
 ADD CONSTRAINT [FK_SiteUsuario]
     FOREIGN KEY ([SiteId])
-    REFERENCES [dbo].[Site]
+    REFERENCES [siteevento].[Site]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_SiteUsuario'
 CREATE INDEX [IX_FK_SiteUsuario]
-ON [dbo].[Usuario]
+ON [siteevento].[Usuario]
+    ([SiteId]);
+GO
+
+-- Creating foreign key on [SiteId] in table 'Contato'
+ALTER TABLE [siteevento].[Contato]
+ADD CONSTRAINT [FK_ContatoSite]
+    FOREIGN KEY ([SiteId])
+    REFERENCES [siteevento].[Site]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ContatoSite'
+CREATE INDEX [IX_FK_ContatoSite]
+ON [siteevento].[Contato]
     ([SiteId]);
 GO
 

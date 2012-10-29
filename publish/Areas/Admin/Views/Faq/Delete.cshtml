@@ -1,0 +1,29 @@
+﻿@model confop.Models.Faq
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Excluir Pergunta</h2>
+
+<h3>Tem certeza que deseja excluir esse registro?</h3>
+<fieldset>
+    <legend>Perguntas Frequentes</legend>
+
+    <div class="display-label">Pergunta</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Pergunta)
+    </div>
+
+    <div class="display-label">Resposta</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Resposta)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Excluir" /> |
+        @Html.ActionLink("Cancelar", "Index")
+    </p>
+}

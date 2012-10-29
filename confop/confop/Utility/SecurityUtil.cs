@@ -11,7 +11,7 @@ namespace confop.Utility
         {
             // Primeiro passo, calcular o MD5 hash a partir da string
             System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create();
-            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes("123456");
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
             byte[] hash = md5.ComputeHash(inputBytes);
 
             // Segundo passo, converter o array de bytes em uma string haxadecimal

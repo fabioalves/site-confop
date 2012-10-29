@@ -38,12 +38,24 @@
       <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
-    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -53,6 +65,12 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.WebPages.Deployment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -68,17 +86,26 @@
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\AutenticationController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ComiteController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ContatoController.cs" />
     <Compile Include="Areas\Admin\Controllers\FaqController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GrupoTrabalhoController.cs" />
     <Compile Include="Areas\Admin\Controllers\LinkController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MembroComiteController.cs" />
     <Compile Include="Areas\Admin\Controllers\SecaoController.cs" />
     <Compile Include="Areas\Admin\ViewModel\LoginPageViewModel.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ApoioController.cs" />
+    <Compile Include="Controllers\ComiteController.cs" />
+    <Compile Include="Controllers\ContatoController.cs" />
+    <Compile Include="Controllers\FaqController.cs" />
+    <Compile Include="Controllers\GrupoTrabalhoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsuarioController.cs" />
+    <Compile Include="Controllers\LinkController.cs" />
+    <Compile Include="Controllers\SecaoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Apoio.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -86,6 +113,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ConfopContext.cs" />
+    <Compile Include="Models\Contato.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Faq.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -129,6 +159,7 @@
     <Compile Include="Utility\SimpleSessionPersister.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\format.css" />
     <Content Include="Content\Site-admin.css" />
     <Content Include="Content\images\bgheader.png" />
     <Content Include="Content\images\bottom-bg.png" />
@@ -163,6 +194,7 @@
     <Content Include="Content\themes\base\jquery.ui.slider.css" />
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Scripts\javascript.js" />
     <Content Include="Scripts\tinymce\changelog.txt" />
     <Content Include="Scripts\tinymce\examples\accessibility.html" />
     <Content Include="Scripts\tinymce\examples\css\content.css" />
@@ -474,12 +506,7 @@
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Account\ChangePassword.cshtml" />
-    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
-    <Content Include="Views\Account\LogOn.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -526,6 +553,25 @@
     <Content Include="Areas\Admin\Views\Link\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Link\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Link\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\GrupoTrabalho\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\GrupoTrabalho\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\GrupoTrabalho\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\GrupoTrabalho\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Comite\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Comite\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Comite\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Comite\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Comite\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\MembroComite\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\MembroComite\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\MembroComite\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\MembroComite\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\MembroComite\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Contato\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Contato\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Contato\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Contato\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Contato\Delete.cshtml" />
     <None Include="Scripts\tinymce\examples\media\sample.dcr" />
     <None Include="Scripts\tinymce\examples\media\sample.ram" />
     <None Include="Scripts\tinymce\examples\media\sample.rm" />
@@ -542,6 +588,17 @@
     <Content Include="Views\Usuario\Create.cshtml" />
     <Content Include="Views\Usuario\Edit.cshtml" />
     <Content Include="Views\Usuario\Delete.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Secao\Index.cshtml" />
+    <Content Include="Views\GrupoTrabalho\Index.cshtml" />
+    <Content Include="Views\Link\Index.cshtml" />
+    <Content Include="Views\Faq\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Comite\Index.cshtml" />
+    <Content Include="Views\Apoio\Index.cshtml" />
+    <Content Include="Views\Contato\Index.cshtml" />
+    <Content Include="Views\Contato\Success.cshtml" />
+    <Content Include="Views\Contato\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -1,0 +1,27 @@
+﻿@model confop.Models.Secao
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Visualizar Seção</h2>
+
+<fieldset>
+    <legend>Secao</legend>
+
+    <div class="display-label">Nome</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nome)
+    </div>
+
+    <div class="display-label">Texto</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Texto)
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Voltar para a Lista", "Index")
+</p>

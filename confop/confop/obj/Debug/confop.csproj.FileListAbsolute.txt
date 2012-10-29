@@ -5,3 +5,17 @@ C:\Users\FABIO\Dropbox\artigosFabioEdie\siteconfop\confop\confop\bin\EntityFrame
 C:\Users\FABIO\Dropbox\artigosFabioEdie\siteconfop\confop\confop\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\FABIO\Dropbox\artigosFabioEdie\siteconfop\confop\confop\obj\Debug\confop.dll
 C:\Users\FABIO\Dropbox\artigosFabioEdie\siteconfop\confop\confop\obj\Debug\confop.pdb
+C:\Users\FABIO\Dropbox\artigosFabioEdie\siteconfop\confop\confop\bin\System.Web.Helpers.dll
+C:\Users\FABIO\Dropbox\artigosFabioEdie\siteconfop\confop\confop\bin\System.Web.Helpers.xml
+C:\Users\FABIO\Dropbox\artigosFabioEdie\siteconfop\confop\confop\bin\System.Web.Mvc.dll
+C:\Users\FABIO\Dropbox\artigosFabioEdie\siteconfop\confop\confop\bin\System.Web.Mvc.xml
+C:\Users\FABIO\Dropbox\artigosFabioEdie\siteconfop\confop\confop\bin\System.Web.WebPages.dll
+C:\Users\FABIO\Dropbox\artigosFabioEdie\siteconfop\confop\confop\bin\System.Web.WebPages.xml
+C:\Users\FABIO\Dropbox\artigosFabioEdie\siteconfop\confop\confop\bin\System.Web.WebPages.Razor.dll
+C:\Users\FABIO\Dropbox\artigosFabioEdie\siteconfop\confop\confop\bin\System.Web.WebPages.Razor.xml
+C:\Users\FABIO\Dropbox\artigosFabioEdie\siteconfop\confop\confop\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\FABIO\Dropbox\artigosFabioEdie\siteconfop\confop\confop\bin\Microsoft.Web.Infrastructure.xml
+C:\Users\FABIO\Dropbox\artigosFabioEdie\siteconfop\confop\confop\bin\System.Web.WebPages.Deployment.dll
+C:\Users\FABIO\Dropbox\artigosFabioEdie\siteconfop\confop\confop\bin\System.Web.WebPages.Deployment.xml
+C:\Users\FABIO\Dropbox\artigosFabioEdie\siteconfop\confop\confop\bin\System.Web.Razor.dll
+C:\Users\FABIO\Dropbox\artigosFabioEdie\siteconfop\confop\confop\bin\System.Web.Razor.xml

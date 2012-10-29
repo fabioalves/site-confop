@@ -1,0 +1,18 @@
+﻿@model IEnumerable<confop.Models.Link>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Links Úteis</h1>
+<ul>
+@foreach (var item in Model)
+{
+    <li>
+        <a href="@item.Url" target="_blank">
+        @Html.DisplayFor(modelItem => item.Nome)
+        </a>
+    </li>
+}
+</ul>

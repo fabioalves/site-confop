@@ -1,0 +1,24 @@
+﻿@model confop.Areas.Admin.ViewModel.LoginPageViewModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Autenticação</h1>
+@using (Html.BeginForm("Login", "Autentication", new { viewModel = Model }))
+{
+    @Html.ValidationSummary(true)
+
+    <span>Usuário: </span>
+    <p>
+        @Html.TextBoxFor(model => Model.UserName, new { @class = "lognbox"})    
+    </p>
+    <span>Senha: </span>
+    <p>
+        @Html.PasswordFor(model => Model.Password, new { @class = "lognbox" })    
+    </p>
+    <p>
+        <input type="submit" value="Acessar" class="lognbtn" />
+    </p> 
+}

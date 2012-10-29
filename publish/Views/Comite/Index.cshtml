@@ -1,0 +1,24 @@
+﻿@model IEnumerable<confop.Models.Comite>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Comitês</h1>
+
+@foreach (var item in Model) {
+    <div>
+        <h2>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </h2>
+
+    <ul>
+    @foreach (confop.Models.MembroComite membro in item.MembroComite.ToList())
+    {
+        <li>@Html.DisplayFor(it => membro.Nome) - @Html.DisplayFor(it => membro.Email)</li>        
+    }
+    </ul>
+   </div>    
+}
+

@@ -92,5 +92,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Contato">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Contato)">
+        <MappingFragment StoreEntitySet="Contato">
+          <ScalarProperty Name="DataEnvio" ColumnName="DataEnvio" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Remetente" ColumnName="Remetente" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Assunto" ColumnName="Assunto" />
+          <ScalarProperty Name="Mensagem" ColumnName="Mensagem" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

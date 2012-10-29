@@ -34,5 +34,6 @@ namespace confop.Models
         public DbSet<MembroComite> MembroComite { get; set; }
         public DbSet<GrupoTrabalho> GrupoTrabalho { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Contato> Contato { get; set; }
     }
 }

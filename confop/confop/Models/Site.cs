@@ -23,6 +23,7 @@ namespace confop.Models
             this.Apoio = new HashSet<Apoio>();
             this.GrupoTrabalho = new HashSet<GrupoTrabalho>();
             this.Usuario = new HashSet<Usuario>();
+            this.Contato = new HashSet<Contato>();
         }
     
         public int Id { get; set; }
@@ -38,5 +39,6 @@ namespace confop.Models
         public virtual ICollection<Apoio> Apoio { get; set; }
         public virtual ICollection<GrupoTrabalho> GrupoTrabalho { get; set; }
         public virtual ICollection<Usuario> Usuario { get; set; }
+        public virtual ICollection<Contato> Contato { get; set; }
     }
 }

@@ -5,228 +5,257 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-  <EntityContainer Name="ModelStoreContainer">
-    <EntitySet Name="Site" EntityType="Model.Store.Site" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Secao" EntityType="Model.Store.Secao" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Link" EntityType="Model.Store.Link" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Faq" EntityType="Model.Store.Faq" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Apoio" EntityType="Model.Store.Apoio" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Comite" EntityType="Model.Store.Comite" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="MembroComite" EntityType="Model.Store.MembroComite" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="GrupoTrabalho" EntityType="Model.Store.GrupoTrabalho" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Usuario" EntityType="Model.Store.Usuario" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="SiteSecao" Association="Model.Store.SiteSecao">
-      <End Role="Site" EntitySet="Site" />
-      <End Role="Secao" EntitySet="Secao" />
-    </AssociationSet>
-    <AssociationSet Name="SiteLink" Association="Model.Store.SiteLink">
-      <End Role="Site" EntitySet="Site" />
-      <End Role="Link" EntitySet="Link" />
-    </AssociationSet>
-    <AssociationSet Name="SiteFaq" Association="Model.Store.SiteFaq">
-      <End Role="Site" EntitySet="Site" />
-      <End Role="Faq" EntitySet="Faq" />
-    </AssociationSet>
-    <AssociationSet Name="SiteComite" Association="Model.Store.SiteComite">
-      <End Role="Site" EntitySet="Site" />
-      <End Role="Comite" EntitySet="Comite" />
-    </AssociationSet>
-    <AssociationSet Name="SiteApoio" Association="Model.Store.SiteApoio">
-      <End Role="Site" EntitySet="Site" />
-      <End Role="Apoio" EntitySet="Apoio" />
-    </AssociationSet>
-    <AssociationSet Name="ComiteMembroComite" Association="Model.Store.ComiteMembroComite">
-      <End Role="Comite" EntitySet="Comite" />
-      <End Role="MembroComite" EntitySet="MembroComite" />
-    </AssociationSet>
-    <AssociationSet Name="SiteGrupoTrabalho" Association="Model.Store.SiteGrupoTrabalho">
-      <End Role="Site" EntitySet="Site" />
-      <End Role="GrupoTrabalho" EntitySet="GrupoTrabalho" />
-    </AssociationSet>
-    <AssociationSet Name="SiteUsuario" Association="Model.Store.SiteUsuario">
-      <End Role="Site" EntitySet="Site" />
-      <End Role="Usuario" EntitySet="Usuario" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="Site">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Url" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="Rodape" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="EmailResponsavel" Type="nvarchar(max)" Nullable="true" />
-  </EntityType>
-  <EntityType Name="Secao">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Texto" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="SiteId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Link">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Url" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="SiteId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Faq">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Pergunta" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Resposta" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="SiteId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Apoio">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Url" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Imagem" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="SiteId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Comite">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="SiteId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="MembroComite">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="ComiteId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="GrupoTrabalho">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="SiteId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Usuario">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Senha" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="DataUltimoAcesso" Type="datetime" Nullable="true" />
-    <Property Name="SiteId" Type="int" Nullable="false" />
-  </EntityType>
-  <Association Name="SiteSecao">
-    <End Role="Site" Type="Model.Store.Site" Multiplicity="1" />
-    <End Role="Secao" Type="Model.Store.Secao" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Site">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Secao">
-        <PropertyRef Name="SiteId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="SiteLink">
-    <End Role="Site" Type="Model.Store.Site" Multiplicity="1" />
-    <End Role="Link" Type="Model.Store.Link" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Site">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Link">
-        <PropertyRef Name="SiteId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="SiteFaq">
-    <End Role="Site" Type="Model.Store.Site" Multiplicity="1" />
-    <End Role="Faq" Type="Model.Store.Faq" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Site">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Faq">
-        <PropertyRef Name="SiteId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="SiteComite">
-    <End Role="Site" Type="Model.Store.Site" Multiplicity="1" />
-    <End Role="Comite" Type="Model.Store.Comite" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Site">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Comite">
-        <PropertyRef Name="SiteId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="SiteApoio">
-    <End Role="Site" Type="Model.Store.Site" Multiplicity="1" />
-    <End Role="Apoio" Type="Model.Store.Apoio" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Site">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Apoio">
-        <PropertyRef Name="SiteId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="ComiteMembroComite">
-    <End Role="Comite" Type="Model.Store.Comite" Multiplicity="1" />
-    <End Role="MembroComite" Type="Model.Store.MembroComite" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Comite">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="MembroComite">
-        <PropertyRef Name="ComiteId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="SiteGrupoTrabalho">
-    <End Role="Site" Type="Model.Store.Site" Multiplicity="1" />
-    <End Role="GrupoTrabalho" Type="Model.Store.GrupoTrabalho" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Site">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="GrupoTrabalho">
-        <PropertyRef Name="SiteId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="SiteUsuario">
-    <End Role="Site" Type="Model.Store.Site" Multiplicity="1" />
-    <End Role="Usuario" Type="Model.Store.Usuario" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Site">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Usuario">
-        <PropertyRef Name="SiteId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-</Schema></edmx:StorageModels>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="Apoio" EntityType="Model.Store.Apoio" store:Type="Tables" Schema="siteevento" />
+          <EntitySet Name="Comite" EntityType="Model.Store.Comite" store:Type="Tables" Schema="siteevento" />
+          <EntitySet Name="Contato" EntityType="Model.Store.Contato" store:Type="Tables" Schema="siteevento" />
+          <EntitySet Name="Faq" EntityType="Model.Store.Faq" store:Type="Tables" Schema="siteevento" />
+          <EntitySet Name="GrupoTrabalho" EntityType="Model.Store.GrupoTrabalho" store:Type="Tables" Schema="siteevento" />
+          <EntitySet Name="Link" EntityType="Model.Store.Link" store:Type="Tables" Schema="siteevento" />
+          <EntitySet Name="MembroComite" EntityType="Model.Store.MembroComite" store:Type="Tables" Schema="siteevento" />
+          <EntitySet Name="Secao" EntityType="Model.Store.Secao" store:Type="Tables" Schema="siteevento" />
+          <EntitySet Name="Site" EntityType="Model.Store.Site" store:Type="Tables" Schema="siteevento" />
+          <EntitySet Name="Usuario" EntityType="Model.Store.Usuario" store:Type="Tables" Schema="siteevento" />
+          <AssociationSet Name="FK_ComiteMembroComite" Association="Model.Store.FK_ComiteMembroComite">
+            <End Role="Comite" EntitySet="Comite" />
+            <End Role="MembroComite" EntitySet="MembroComite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contato_Site" Association="Model.Store.FK_Contato_Site">
+            <End Role="Site" EntitySet="Site" />
+            <End Role="Contato" EntitySet="Contato" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiteApoio" Association="Model.Store.FK_SiteApoio">
+            <End Role="Site" EntitySet="Site" />
+            <End Role="Apoio" EntitySet="Apoio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiteComite" Association="Model.Store.FK_SiteComite">
+            <End Role="Site" EntitySet="Site" />
+            <End Role="Comite" EntitySet="Comite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiteFaq" Association="Model.Store.FK_SiteFaq">
+            <End Role="Site" EntitySet="Site" />
+            <End Role="Faq" EntitySet="Faq" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiteGrupoTrabalho" Association="Model.Store.FK_SiteGrupoTrabalho">
+            <End Role="Site" EntitySet="Site" />
+            <End Role="GrupoTrabalho" EntitySet="GrupoTrabalho" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiteLink" Association="Model.Store.FK_SiteLink">
+            <End Role="Site" EntitySet="Site" />
+            <End Role="Link" EntitySet="Link" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiteSecao" Association="Model.Store.FK_SiteSecao">
+            <End Role="Site" EntitySet="Site" />
+            <End Role="Secao" EntitySet="Secao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiteUsuario" Association="Model.Store.FK_SiteUsuario">
+            <End Role="Site" EntitySet="Site" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Apoio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Url" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Imagem" Type="nvarchar(max)" />
+          <Property Name="SiteId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Comite">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SiteId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contato">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Remetente" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Email" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Assunto" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Mensagem" Type="text" Nullable="false" />
+          <Property Name="SiteId" Type="int" Nullable="false" />
+          <Property Name="DataEnvio" Type="date" />
+        </EntityType>
+        <EntityType Name="Faq">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Pergunta" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Resposta" Type="nvarchar(max)" />
+          <Property Name="SiteId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GrupoTrabalho">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SiteId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Link">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Url" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SiteId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MembroComite">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="ComiteId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Secao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Texto" Type="nvarchar(max)" />
+          <Property Name="SiteId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Site">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Url" Type="nvarchar(max)" />
+          <Property Name="Rodape" Type="nvarchar(max)" />
+          <Property Name="EmailResponsavel" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Senha" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DataUltimoAcesso" Type="datetime" />
+          <Property Name="SiteId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ComiteMembroComite">
+          <End Role="Comite" Type="Model.Store.Comite" Multiplicity="1" />
+          <End Role="MembroComite" Type="Model.Store.MembroComite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comite">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MembroComite">
+              <PropertyRef Name="ComiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contato_Site">
+          <End Role="Site" Type="Model.Store.Site" Multiplicity="1" />
+          <End Role="Contato" Type="Model.Store.Contato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Site">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contato">
+              <PropertyRef Name="SiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiteApoio">
+          <End Role="Site" Type="Model.Store.Site" Multiplicity="1" />
+          <End Role="Apoio" Type="Model.Store.Apoio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Site">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Apoio">
+              <PropertyRef Name="SiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiteComite">
+          <End Role="Site" Type="Model.Store.Site" Multiplicity="1" />
+          <End Role="Comite" Type="Model.Store.Comite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Site">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comite">
+              <PropertyRef Name="SiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiteFaq">
+          <End Role="Site" Type="Model.Store.Site" Multiplicity="1" />
+          <End Role="Faq" Type="Model.Store.Faq" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Site">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Faq">
+              <PropertyRef Name="SiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiteGrupoTrabalho">
+          <End Role="Site" Type="Model.Store.Site" Multiplicity="1" />
+          <End Role="GrupoTrabalho" Type="Model.Store.GrupoTrabalho" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Site">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GrupoTrabalho">
+              <PropertyRef Name="SiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiteLink">
+          <End Role="Site" Type="Model.Store.Site" Multiplicity="1" />
+          <End Role="Link" Type="Model.Store.Link" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Site">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Link">
+              <PropertyRef Name="SiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiteSecao">
+          <End Role="Site" Type="Model.Store.Site" Multiplicity="1" />
+          <End Role="Secao" Type="Model.Store.Secao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Site">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Secao">
+              <PropertyRef Name="SiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiteUsuario">
+          <End Role="Site" Type="Model.Store.Site" Multiplicity="1" />
+          <End Role="Usuario" Type="Model.Store.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Site">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="SiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
@@ -272,6 +301,11 @@
             <End Role="Site" EntitySet="Site" />
             <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
+          <EntitySet Name="Contato" EntityType="Model.Contato" />
+          <AssociationSet Name="ContatoSite" Association="Model.ContatoSite">
+            <End Role="Contato" EntitySet="Contato" />
+            <End Role="Site" EntitySet="Site" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Site">
           <Key>
@@ -289,6 +323,7 @@
           <NavigationProperty Name="Apoio" Relationship="Model.SiteApoio" FromRole="Site" ToRole="Apoio" />
           <NavigationProperty Name="GrupoTrabalho" Relationship="Model.SiteGrupoTrabalho" FromRole="Site" ToRole="GrupoTrabalho" />
           <NavigationProperty Name="Usuario" Relationship="Model.SiteUsuario" FromRole="Site" ToRole="Usuario" />
+          <NavigationProperty Name="Contato" Relationship="Model.ContatoSite" FromRole="Site" ToRole="Contato" />
         </EntityType>
         <EntityType Name="Secao">
           <Key>
@@ -467,6 +502,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Contato">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Remetente" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="false" />
+          <Property Type="String" Name="Assunto" Nullable="false" />
+          <Property Type="String" Name="Mensagem" Nullable="false" />
+          <NavigationProperty Name="Site" Relationship="Model.ContatoSite" FromRole="Contato" ToRole="Site" />
+          <Property Type="Int32" Name="SiteId" Nullable="false" />
+          <Property Type="DateTime" Name="DataEnvio" />
+        </EntityType>
+        <Association Name="ContatoSite">
+          <End Type="Model.Contato" Role="Contato" Multiplicity="*" />
+          <End Type="Model.Site" Role="Site" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Site">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contato">
+              <PropertyRef Name="SiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -564,6 +624,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Contato">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Contato)">
+        <MappingFragment StoreEntitySet="Contato">
+          <ScalarProperty Name="DataEnvio" ColumnName="DataEnvio" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Remetente" ColumnName="Remetente" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Assunto" ColumnName="Assunto" />
+          <ScalarProperty Name="Mensagem" ColumnName="Mensagem" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
@@ -579,41 +652,38 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="DefaultDatabaseSchema" Value="siteevento" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram Name="Model" >
-        <EntityTypeShape EntityType="Model.Site" Width="1.5" PointX="2.875" PointY="0.75" Height="1.9802864583333331" />
-        <EntityTypeShape EntityType="Model.Secao" Width="1.5" PointX="5" PointY="1.5" Height="1.9802864583333339" />
+        <EntityTypeShape EntityType="Model.Site" Width="1.5" PointX="2.875" PointY="0.75" Height="3.3263964843749996" />
+        <EntityTypeShape EntityType="Model.Secao" Width="1.5" PointX="5" PointY="2" Height="1.9802864583333339" />
         <AssociationConnector Association="Model.SiteSecao">
-          <ConnectorPoint PointX="4.375" PointY="2.4901432291666667" />
-          <ConnectorPoint PointX="5" PointY="2.4901432291666667" />
+          <ConnectorPoint PointX="4.375" PointY="2.9901432291666667" />
+          <ConnectorPoint PointX="5" PointY="2.9901432291666667" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Model.Link" Width="1.5" PointX="4.875" PointY="4.375" Height="1.9802864583333335" />
         <AssociationConnector Association="Model.SiteLink">
-          <ConnectorPoint PointX="4.375" PointY="3.6917936197916661" />
+          <ConnectorPoint PointX="4.375" PointY="4.076396484375" />
           <ConnectorPoint PointX="4.875" PointY="4.375" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Model.Faq" Width="1.5" PointX="6.75" PointY="3.75" Height="1.9802864583333335" />
         <AssociationConnector Association="Model.SiteFaq">
-          <ConnectorPoint PointX="4.375" PointY="3.1871191406249997" />
-          <ConnectorPoint PointX="4.75" PointY="3.1871191406249997" />
-          <ConnectorPoint PointX="4.75" PointY="3.7302864583333335" />
-          <ConnectorPoint PointX="6.5" PointY="3.7302864583333335" />
-          <ConnectorPoint PointX="6.5" PointY="3.5" />
-          <ConnectorPoint PointX="7.5" PointY="3.5" />
-          <ConnectorPoint PointX="7.5" PointY="3.75" />
+          <ConnectorPoint PointX="4.375" PointY="4.0595914713541665" />
+          <ConnectorPoint PointX="6.75" PointY="4.0595914713541665" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Model.Apoio" Width="1.5" PointX="2.375" PointY="4.875" Height="2.1725878906249996" />
         <EntityTypeShape EntityType="Model.Comite" Width="1.5" PointX="0.5" PointY="0.5" Height="1.4033821614583331" />
         <EntityTypeShape EntityType="Model.MembroComite" Width="1.5" PointX="0.5" PointY="2.875" Height="1.59568359375" />
         <AssociationConnector Association="Model.SiteComite">
-          <ConnectorPoint PointX="2.875" PointY="1.5189925130208335" />
-          <ConnectorPoint PointX="2" PointY="1.5189925130208335" />
+          <ConnectorPoint PointX="2.875" PointY="1.6151432291666668" />
+          <ConnectorPoint PointX="2" PointY="1.6151432291666668" />
         </AssociationConnector>
         <AssociationConnector Association="Model.SiteApoio">
-          <ConnectorPoint PointX="3.375" PointY="3.6917936197916661" />
+          <ConnectorPoint PointX="3.375" PointY="4.076396484375" />
           <ConnectorPoint PointX="3.375" PointY="4.875" />
         </AssociationConnector>
         <AssociationConnector Association="Model.ComiteMembroComite">
@@ -622,14 +692,24 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="Model.GrupoTrabalho" Width="1.5" PointX="8.625" PointY="1.25" Height="1.787985026041667" />
         <AssociationConnector Association="Model.SiteGrupoTrabalho">
-          <ConnectorPoint PointX="4.375" PointY="3.6151432291666667" />
-          <ConnectorPoint PointX="9.375" PointY="3.6151432291666667" />
-          <ConnectorPoint PointX="9.375" PointY="3.037985026041667" />
+          <ConnectorPoint PointX="3.625" PointY="0.75" />
+          <ConnectorPoint PointX="3.625" PointY="0.6875" />
+          <ConnectorPoint PointX="6.6875" PointY="0.6875" />
+          <ConnectorPoint PointX="6.6875" PointY="2.7350878906249996" />
+          <ConnectorPoint PointX="8.53125" PointY="2.7350878906249996" />
+          <ConnectorPoint PointX="8.53125" PointY="2.1439925130208337" />
+          <ConnectorPoint PointX="8.625" PointY="2.1439925130208337" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Model.Usuario" Width="1.5" PointX="6.75" PointY="0.5" Height="2.172587890625" />
         <AssociationConnector Association="Model.SiteUsuario">
-          <ConnectorPoint PointX="4.375" PointY="1.09375" />
-          <ConnectorPoint PointX="6.75" PointY="1.09375" />
+          <ConnectorPoint PointX="4.375" PointY="1.34375" />
+          <ConnectorPoint PointX="6.75" PointY="1.34375" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Model.Contato" Width="1.5" PointX="0.5" PointY="5.625" Height="1.9802864583333326" />
+        <AssociationConnector Association="Model.ContatoSite">
+          <ConnectorPoint PointX="2" PointY="7.5499886067708335" />
+          <ConnectorPoint PointX="4.1249975" PointY="7.5499886067708335" />
+          <ConnectorPoint PointX="4.1249975" PointY="4.2686979166666656" />
         </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>

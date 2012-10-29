@@ -8,8 +8,9 @@ using System.Web.Mvc;
 using confop.Models;
 
 namespace confop.Areas.Admin.Controllers
-{ 
-    public class FaqController : Controller
+{
+    [Authorize(Roles = "Administrador")]
+    public class FaqController : BaseController
     {
         private ModelContainer db = new ModelContainer();
 

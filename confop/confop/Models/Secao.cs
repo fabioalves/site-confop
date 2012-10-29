@@ -11,13 +11,11 @@ namespace confop.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Web.Mvc;
     
     public partial class Secao
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        [AllowHtml]
         public string Texto { get; set; }
         public int SiteId { get; set; }
     

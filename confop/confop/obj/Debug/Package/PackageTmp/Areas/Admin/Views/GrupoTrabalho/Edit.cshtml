@@ -1,0 +1,15 @@
+﻿@model confop.Models.GrupoTrabalho
+@using (Html.BeginForm("Edit", "GrupoTrabalho")) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Editar</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+         Nome do Eixo Temático: 
+            @Html.EditorFor(model => model.Nome)
+            @Html.ValidationMessageFor(model => model.Nome)
+        @Html.HiddenFor(model => model.SiteId)
+            <input type="submit" value="Salvar" />
+    </fieldset>
+}

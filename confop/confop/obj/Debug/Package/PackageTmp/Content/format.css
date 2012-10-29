@@ -1,0 +1,45 @@
+/***********************************************************************************************************************
+DOCUMENT: style/format.css
+DEVELOPED BY: Ryan Stemkoski
+COMPANY: Zipline Interactive
+EMAIL: ryan@gozipline.com
+PHONE: 509-321-2849
+DATE: 2/26/2009
+DESCRIPTION: This document contains the structural formatting files for the accordion style menu.
+************************************************************************************************************************/
+#wrapper {
+	width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	}
+
+.accordionButton {	
+	width: 600px;
+	float: left;
+	_float: none;  /* Float works in all browsers but IE6 */
+	background: #257B83;
+	border-bottom: 1px solid #FFFFFF;
+	color:#fff;
+	padding:5px;
+	cursor: pointer;
+	}
+	
+.accordionContent {	
+	width: 600px;
+	float: left;
+	_float: none; /* Float works in all browsers but IE6 */
+	background: #E7F8F8;
+	padding:5px;
+	}
+	
+/***********************************************************************************************************************
+ EXTRA STYLES ADDED FOR MOUSEOVER / ACTIVE EVENTS
+************************************************************************************************************************/
+
+.on {
+	background: #5AC7D0;
+	}
+	
+.over {
+	background: #CCCCCC;
+	}
