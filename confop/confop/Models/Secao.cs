@@ -11,12 +11,17 @@ namespace confop.Models
 {
     using System;
     using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
     
     public partial class Secao
     {
         public int Id { get; set; }
+        [Required(ErrorMessage="O campo 'Nome' é obrigatório")]
         public string Nome { get; set; }
+        
+        
         public string Texto { get; set; }
+        
         public int SiteId { get; set; }
     
         public virtual Site Site { get; set; }

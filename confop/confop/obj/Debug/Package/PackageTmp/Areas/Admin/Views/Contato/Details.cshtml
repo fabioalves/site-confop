@@ -1,0 +1,34 @@
+﻿@model confop.Models.Contato
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Mensagem</h2>
+<p>
+    @Html.ActionLink("Voltar para a Lista", "Index")
+</p>
+
+<fieldset>    
+    <div class="display-label">Remetente</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Remetente)
+    </div>
+
+    <div class="display-label">E-mail</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">Assunto</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Assunto)
+    </div>
+
+    <div class="display-label">Mensagem</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Mensagem)
+    </div>
+</fieldset>
+

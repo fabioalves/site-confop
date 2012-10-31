@@ -8,9 +8,8 @@ using System.Web.Mvc;
 using confop.Models;
 
 namespace confop.Areas.Admin.Controllers
-{
-    [Authorize(Roles = "Administrador")]
-    public class MembroComiteController : BaseController
+{    
+    public class MembroComiteController : Controller
     {
         private ModelContainer db = new ModelContainer();
 

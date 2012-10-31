@@ -8,7 +8,7 @@ using System.Web.Mvc;
 using confop.Models;
 
 namespace confop.Areas.Admin.Controllers
-{ 
+{    
     [Authorize(Roles = "Administrador")]
     public class SecaoController : BaseController
     {
@@ -71,8 +71,9 @@ namespace confop.Areas.Admin.Controllers
 
         //
         // POST: /Admin/Secao/Edit/5
-
+        
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Edit(Secao secao)
         {
             if (ModelState.IsValid)

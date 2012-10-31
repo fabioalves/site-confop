@@ -1,11 +1,12 @@
 ﻿<div id="vertical-menu-box">
 <ul>
-    <li><a href='/Admin/Admin/Index'><span>Inicial</span></a></li>
-    <li><a href='/Admin/Secao/Index'><span>Seções de Conteúdo</span></a></li>
-    <li><a href='/Admin/Faq/Index'><span>Perguntas Frequentes</span></a></li>
-    <li><a href='/Admin/Link/Index'><span>Links Úteis</span></a></li>
-    <li><a href='/Admin/GrupoTrabalho/Index'><span>Eixos Temáticos</span></a></li>
-    <li><a href='/Admin/Comite/Index'><span>Comitê de Programa</span></a></li>
-    <li><a href='/Admin/Autentication/Logout'><span>Sair do Sistema</span></a></li>
+    <li>@Html.ActionLink("Inicial", "Index", "Admin", new { area = "Admin" }, null)</li>
+    <li>@Html.ActionLink("Seções de Conteúdo", "Index", "Secao", new { area = "Admin" }, null)</li>
+    <li>@Html.ActionLink("Perguntas Frequentes", "Index", "Faq", new { area = "Admin" }, null)</li>
+    <li>@Html.ActionLink("Links Úteis", "Index", "Link", new { area = "Admin" }, null)</li>
+    <li>@Html.ActionLink("Eixos Temáticos", "Index", "GrupoTrabalho", new { area = "Admin" }, null)</li>
+    <li>@Html.ActionLink("Comitê de Programa", "Index", "Comite", new { area = "Admin" }, null)</li>
+    <li>@Html.ActionLink("Mensagens", "Index", "Contato", new { area = "Admin" }, null)</li>
+    <li>@Html.ActionLink("Sair do Sistema", "Logout", "Autentication", new { area = "Admin" }, null)</li>
 </ul>
 </div>

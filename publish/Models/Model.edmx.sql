@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 10/25/2012 09:16:20
+-- Date Created: 10/29/2012 10:02:23
 -- Generated from EDMX file: C:\Users\FABIO\Dropbox\artigosFabioEdie\siteconfop\confop\confop\Models\Model.edmx
 -- --------------------------------------------------
 
@@ -160,6 +160,17 @@ CREATE TABLE [siteevento].[Usuario] (
 );
 GO
 
+-- Creating table 'Contato'
+CREATE TABLE [siteevento].[Contato] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Remetente] nvarchar(max)  NOT NULL,
+    [Email] nvarchar(max)  NOT NULL,
+    [Assunto] nvarchar(max)  NOT NULL,
+    [Mensagem] nvarchar(max)  NOT NULL,
+    [SiteId] int  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -215,6 +226,12 @@ GO
 -- Creating primary key on [Id] in table 'Usuario'
 ALTER TABLE [siteevento].[Usuario]
 ADD CONSTRAINT [PK_Usuario]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Contato'
+ALTER TABLE [siteevento].[Contato]
+ADD CONSTRAINT [PK_Contato]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -331,6 +348,20 @@ ADD CONSTRAINT [FK_SiteUsuario]
 -- Creating non-clustered index for FOREIGN KEY 'FK_SiteUsuario'
 CREATE INDEX [IX_FK_SiteUsuario]
 ON [siteevento].[Usuario]
+    ([SiteId]);
+GO
+
+-- Creating foreign key on [SiteId] in table 'Contato'
+ALTER TABLE [siteevento].[Contato]
+ADD CONSTRAINT [FK_ContatoSite]
+    FOREIGN KEY ([SiteId])
+    REFERENCES [siteevento].[Site]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ContatoSite'
+CREATE INDEX [IX_FK_ContatoSite]
+ON [siteevento].[Contato]
     ([SiteId]);
 GO
 

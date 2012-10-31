@@ -95,6 +95,8 @@ namespace confop.Areas.Admin.Controllers
  
         public ActionResult Delete(int id)
         {
+            
+
             Comite comite = db.Comite.Find(id);
             return View(comite);
         }
@@ -105,6 +107,14 @@ namespace confop.Areas.Admin.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {            
+            List<MembroComite> membros = db.MembroComite.Where(c => c.ComiteId == id).ToList();
+
+            foreach (MembroComite m in membros)
+            {
+                db.MembroComite.Remove(m);
+                db.SaveChanges();
+            }
+
             Comite comite = db.Comite.Find(id);
             db.Comite.Remove(comite);
             db.SaveChanges();

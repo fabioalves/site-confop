@@ -34,22 +34,23 @@
                    <li>
                    @Html.ActionLink("Eixos Temáticos", "Index", "GrupoTrabalho")
                    </li>                   
-                   <li><a href='#'><span>Contato</span></a></li>
+                   <li>
+                   @Html.ActionLink("Contato", "Index", "Contato")</li>
                 </ul>
             </div>
         </header>
 
-        
-        <section id="main">
-        <section id="right-block">
-        <div class='vertical-menu'>
-            @RenderPage("_RightBlock.cshtml")
+        <div id="main-outer">
+        <div id="main">
+            
+            <div id="content-box">
+                    @RenderBody()
+            </div>  
+            <div id="vertical-menu">
+                @RenderPage("_RightBlock.cshtml")
+            </div>
         </div>
-        </section>
-            <div class="content-box">
-                @RenderBody()
-            </div>        
-        </section>
+        </div>
         
         <footer>
             <section id="footer">

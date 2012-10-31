@@ -94,6 +94,7 @@
     <Compile Include="Areas\Admin\Controllers\MembroComiteController.cs" />
     <Compile Include="Areas\Admin\Controllers\SecaoController.cs" />
     <Compile Include="Areas\Admin\ViewModel\LoginPageViewModel.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApoioController.cs" />
     <Compile Include="Controllers\ComiteController.cs" />
     <Compile Include="Controllers\ContatoController.cs" />

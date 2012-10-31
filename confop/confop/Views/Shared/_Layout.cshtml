@@ -40,17 +40,17 @@
             </div>
         </header>
 
-        
-        <section id="main">
-        <section id="right-block">
-        <div class='vertical-menu'>
-            @RenderPage("_RightBlock.cshtml")
+        <div id="main-outer">
+        <div id="main">
+            
+            <div id="content-box">
+                    @RenderBody()
+            </div>  
+            <div id="vertical-menu">
+                @RenderPage("_RightBlock.cshtml")
+            </div>
         </div>
-        </section>
-            <div class="content-box">
-                @RenderBody()
-            </div>        
-        </section>
+        </div>
         
         <footer>
             <section id="footer">
